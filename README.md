@@ -2,34 +2,32 @@
 <img src="https://www.synaxiom.com/wp-content/uploads/2016/06/osticket.png" alt="osTicket logo"/>
 </p>
 
-<h1>osTicket - Prerequisites and Installation</h1>
-This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket. It is optional to deploy this inside of a Windows 10 Azure VM, you can do it on your own machine if you like, but I would suggest trying it in an Azure VM or at least something like VirtualBox first. A link to a tutorial for setting up VMs in Azure will be listed below, just follow that tutorial until you get to the part where you create the Windows 10 VM. I also recomend using 4 vCPUs for that VM.</p>
+<h1>osTicket - Prerequisites</h1>
+This is a tutorial that guides you through the prerequisites and installation of the open source support ticketing system osTicket. As a beginner, you may follow this guide to learn the basics while in a real world scenario you may need to further customize the system to work with your company. We will be deploying osTicket inside of Windows 10 Azure VM, but you can use any machhine that can run a VM. If you have not checked out how to setup a VM in my previous tutorials, there will be a link below where it will guide you step by step.</p>
 
-- [How to Setup VMs and a Virtual Network in Azure](https://github.com/jacksonmalms/create-azure-vm)
+- [How to Setup VMs and a Virtual Network in Azure](https://github.com/bvongpradith/creating-azure-vm)
 
-Side note: this tutorial is really designed to learn how to setup and use osTicket, in a real world environment there is obviously going to be a need for further customization so I wouldn't suggest using this tutorial to actually set up a ticketing system for a real company, but rather for beginners to learn from.</p>
+Download these files before we begin which contain installion files that we will donwload in the VM later.
 
-Also go ahead and open this Google Drive folder containing the installation files, we will open this in the VM to download and set these up later.
+- [Google Drive folder](https://drive.google.com/drive/folders/1DABjdlQAXxIvWIURTiBelD0rw6IzLNru)<br />
 
-- [Google Drive folder](https://drive.google.com/drive/folders/1Rwlmwx0gM8bD1Z9-XtwGPwk9f4OaBcbz)<br />
+<h2>Environments and Tech Used</h2>
 
-<h2>Environments and Technologies Used</h2>
-
-- Microsoft Azure (Virtual Machines/Compute)
+- Microsoft Azure
 - Remote Desktop
-- Internet Information Services (IIS)
+- Internet Information Services
 - osTicket
 - HeidiSQL
 
-<h2>Operating Systems Used </h2>
+<h2>Operating Systems </h2>
 
 - Windows 10</b> (21H2)
 
-<h2>High Level List of Steps</h2>
+<h2>Steps</h2>
 
-- RDP into your Windows 10 VM
-- Install / Enable IIS in Windows WITH CGI
-- Download and install PHP Manager for IIS
+- Remote Desktop Connection into your Windows 10 Virtual Machine
+- Install / Enable Internet Information Services in Windows WITH CGI
+- Download and install PHP Manager for Internet Information Services
 - Download and install the Rewrite Module
 - Create the directory C:\PHP
 - Download PHP 7.3.8 and unzip the contents into C:\PHP
@@ -40,28 +38,28 @@ Also go ahead and open this Google Drive folder containing the installation file
 - Download and install HeidiSQL
 - Continue setting up osTicket in the browser
 
-<h2>Installation Steps/Visual Walkthrough</h2>
+<h2>Installation Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/nIsq2Qb.png"/>
+<img src="https://i.imgur.com/Bb7Asf7.png"/>
 </p>
 <p>
-First we are going want to RDP into our VM (if you are going to use one). Just find the public IP of the VM and connect with RDP.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/55R6cCS.png"/>
-</p>
-<p>
-Then paste the link to the Google Drive folder in the VM's browser.
-
-- https://drive.google.com/drive/folders/1Rwlmwx0gM8bD1Z9-XtwGPwk9f4OaBcbz
+First, we will be connecting to our VM through Remote Desktop Connnection. To do this, go to the VM on the Azure Portal > Copy Public IP Address > Connect with RDC.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/mpO8frk.png"/>
+<img src="https://i.imgur.com/dV47FKj.png"/>
+</p>
+<p>
+Paste the link into the browser inside of your VM.
+
+- https://drive.google.com/drive/folders/1DABjdlQAXxIvWIURTiBelD0rw6IzLNru
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DjGPY5A.png"/>
 </p>
 <p>
 Go to the Programs section in Control Panel and click on "Turn Windows features on or off".
@@ -69,46 +67,42 @@ Go to the Programs section in Control Panel and click on "Turn Windows features 
 <br />
 
 <p>
-<img src="https://i.imgur.com/7GVFsMN.png"/>
+<img src="https://i.imgur.com/sPvEkj0.png"/>
 </p>
 <p>
-Install / Enable IIS in Windows WITH CGI
-
-Just make sure every box that is shown in the image above is checked, you can hit the little "+" to expand menus out.
-
-Hit OK and wait for everything to install and apply changes.
+Next, install and enable IIS in Windows WITH CGI. Check every box shown in the visual step and hit OK to install.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/U7RUUyI.png"/>
+<img src="https://i.imgur.com/2Br2jww.png"/>
 </p>
 <p>
-Now in a new browser tab, type 127.0.0.1 (this is your loopback IP, if you don't know what that is google it). You then should see the IIS page popup, if you don't, go back and make sure you actually installed IIS with CGI.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/Xx05Dva.png"/>
-</p>
-<p>
-Now from the drive folder install PHPManagerForIIS_V1.5.0.msi and rewrite_amd64_en-US.msi
+After you install IIS, open a new browser and type into the search bar "127.0.0.1". The IIS page should pop up but if you do not see it; you will need to go back to control panel to make sure CGI is checked.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/No25WUQ.png"/>
+<img src="https://i.imgur.com/QmF8rwL.png"/>
 </p>
 <p>
-Create a new directory called C:\PHP
+Download and install PHPManagerForIIS_V1.5.0.msi and rewrite_amd64_en-US.msi from the istall folders in the other web browser.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/IA8113C.png"/>
+<img src="https://i.imgur.com/RJUmUcY.png"/>
 </p>
 <p>
-Now install php-7.3.8-nts-Win32-VC15-x86.zip, move and extract all the contents into C:\PHP
+Next, create a new directory in your C drive called PHP or C:\PHP.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/ubNDqqk.png"/>
+</p>
+<p>
+Now, download and install php-7.3.8-nts-Win32-VC15-x86.zip and then extract all the contents into C:\PHP.
 </p>
 <br />
 
