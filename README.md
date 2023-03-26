@@ -277,30 +277,16 @@ Head back to the osTicket installer and enter the username and password. This sh
 </p>
 <br />
 
+<p>
+<img src="https://i.imgur.com/5ECtaot.png"/>
+</p>
+<p>
+To clean up some of the extra stuff in the tutorial, we'll browse back into C:\inetpub > wwwroot > osTicket > delete the "setup" folder.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/GanOWok.png"/>
+<img src="https://i.imgur.com/8rJLIgD.png"/>
 </p>
 <p>
-We are almost ready to go on to the next tutorial, but first we need to clean some things up.
-
-First browse to the C: drive -> inetpub -> wwwroot -> osTicket -> and delete the "setup" folder.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/ZEWbk8x.png"/>
-</p>
-<p>
-Now browse to C: -> inetpub -> wwwroot -> osTicket -> include -> and locate ost-config.php
-
-Then on ost-config.php go to Properties -> Security -> Advanced -> click Everyone -> Edit -> and set the permissions to Read and Read & Execute only -> Apply.
-
-Click OK.
-
-Congratulations, you have made it to the end of this part of the tutorial! Now keep the VM and osTicket open, then move on to the post installation setup tutorial.
-The link to that tutorial is linked below.
-
-- [osTicket: Post-Installation Configuration](https://github.com/jacksonmalms/post-install-config)
+Stay in the osTicket folder > include > fine "ost-config.php" > right click for properties > Security > Advanced > click Everyone > Edit > set permissions to only "Read" and "Read and execute" only > OK > Apply > OK
