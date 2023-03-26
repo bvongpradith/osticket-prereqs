@@ -107,66 +107,34 @@ Now, download and install php-7.3.8-nts-Win32-VC15-x86.zip and then extract all 
 <br />
 
 <p>
-<img src="https://i.imgur.com/PZ3BXsF.png"/>
+<img src="https://i.imgur.com/6G13Dex.png"/>
 </p>
 <p>
 Download and install VC_redist.x86.exe.
 
 Download and install mysql-5.5.62-win32.msi
-- Typical Setup ->
-- Launch Configuration Wizard (after install) ->
-- Standard Configuration ->
-- Next ->
-- Password1 (root will be the username, but you don't need to set that up) ->
-- Execute 
-
+- Typical Setup > Launch Wizard > Standard Configuration > Next > Set the password to "Password1" > Execute
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/kfk7PPp.png"/>
+<img src="https://i.imgur.com/9z2kuvC.png"/>
 </p>
 <p>
-Open IIS as administrator as shown above.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/QnWyh4t.png"/>
-</p>
-<p>
-After opening IIS Manager as admin, click on the "PHP Manager" icon", hit "Register new PHP version". 
-
-Browse files and find the PHP folder we made earlier and select "php-cgi" and hit open.
+Search for IIS in the search bar and open it as administrator.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/7nygYZ7.png"/>
+<img src="https://i.imgur.com/PNCSsWD.png"/>
 </p>
 <p>
-Restart the IIS server as per the image above.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/VCrGYgY.png"/>
-</p>
-<p>
-Now open two separate file explorer windows and on one navigate to the downloads folder and click on osTicket-v1.15.8, and on the other window open up your C:/ drive.
+After opening IIS Manager as admin, click on "PHP Manager" icon > click on "Register new PHP version" > Browse files > C:\PHP > open "php-cgi"
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/izvuG0n.png"/>
-</p>
-<p>
-In that C:/ window, navigate to "inetpup" -> "wwwroot" and move in the "upload" folder from the osTicket zip and let it finish copying. Then rename the "upload" folder to "osTicket".
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/RxeVUCO.png"/>
+<img src="https://ihttps://i.imgur.com/nKjcWdB.png"/>
 </p>
 <p>
 Restart the IIS server.
@@ -174,135 +142,141 @@ Restart the IIS server.
 <br />
 
 <p>
-<img src="https://i.imgur.com/fm1ZFgU.png"/>
+<img src="https://i.imgur.com/vCtQcNC.png"/>
 </p>
 <p>
-Close and reopen IIS manager as admin again, on the left expand the menus osTicket-VM -> Sites -> Default Web Site -> then click on osTicket.
-
-On the right hit Browse *:80 and you should see the osTicket installer open inside of your default browser.
+Now, download the file osTicket-v1.15.8 from the install files. After it finishes downloading, open two file explorer windows and navigate to the osTicket-v1.15.8.zip folder and "inetpup".
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/QqUA0PL.png"/>
+<img src="https://i.imgur.com/q58Kj8z.png"/>
 </p>
 <p>
-Go back to IIS Manager, osTicket-VM -> Sites -> Default Web Site -> click osTicket, then click on "Enable or disable an extension".
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/PTOgAhg.png"/>
-</p>
-<p>
-Locate "php_imap.dll", "php_intl.dll", and "php_opcache.dll". Enable them all by right-clicking.
+In the inetpup folder, go to "wwwroot" and transfer the "upload" folder in from the osTicket zip. After it finishes, rename the "upload" folder to "osTicket". 
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/W67FgEV.png"/>
+<img src="https://i.imgur.com/nKjcWdB.png"/>
 </p>
 <p>
-Refresh the osTicket installer page and observe the changes, it should match the picture above.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/uEMoIah.png"/>
-</p>
-<p>
-In file explorer go to C: -> inetpub-> wwwroot -> osTicket -> include, then locate ost-sampleconfig.php at the bottom.
+Restart the IIS server.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/T4CBoq4.png"/>
+<img src="https://i.imgur.com/q2UBV4r.png"/>
 </p>
 <p>
-Then rename the file form "ost-sampleconfig.php" to "ost-config.php"
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/Xto4OTI.png"/>
-</p>
-<p>
-Then right click on that file got to Properties -> Security -> Disable inheritance -> Remove all
+Restart IIS as admin and expand VM1 on the left menus > Sites > Default Web Sites > Click osTicket. Click on "Browse *.80 which will open web browser that will open a osTicket installer.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/KTIJ5J0.png"/>
+<img src="https://i.imgur.com/blmP1hD.png"/>
 </p>
 <p>
-Then click Add -> Select a principal -> In the object box type "Everyone" and check for names -> click OK
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/7Tpm1LY.png"/>
-</p>
-<p>
-Select Full control and hit OK -> click Apply -> OK -> OK
+Head back to IIS Manager and into osTicket again. Click on the "PHP Manager" icon and then at the bottom click "Enable or disable an extension".
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/9Bf1IuO.png"/>
+<img src="https://i.imgur.com/8wk5Tbv.png"/>
 </p>
 <p>
-Now go back into the osTicket installer in the browser and click continue.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/3uOvZ8X.png"/>
-</p>
-<p>
-For the name I just did "Helpdesk" and for the email I did "john@helpdesk.com", then I set the Admin User credentials, write these down if you made up your own. 
-
-Now just leave this page be and go onto the next step in this tutorial.
+Enable "php_imap.dll", "php_intl.dll", and "php_opcache.dll" by right clicking and hitting enable.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/3d9To5Z.png"/>
+<img src="https://i.imgur.com/z2GpQ3j.png"/>
 </p>
 <p>
-Download HeidiSQL form the Drive folder, it will download as a word doc and open it, then click the link to download the HeidiSQL Setup. 
-
-Then install it.
-
-Once it opens, click the green new button in the bottom left of the window, the username should be "root" and the password should be "Password1" if you set them to those earlier in this tutorial, then hit open.
+Refresh the web browser that has the osTicket installer and observe the changes. It should look like the screenshot above.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/8IMqLza.png"/>
+<img src="https://i.imgur.com/kBCw239.png"/>
 </p>
 <p>
-In HeidiSQL, right click Unnamed -> Create new -> Database, name it "osTicket" and click OK
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/qmZlp4P.png"/>
-</p>
-<p>
-Going back into the osTicket installer in the browser, put in the username and password for MySQL (should be "root" and "Password1" if you set them to those) and click install.
+Open up file explorer and navigate back to osTicket inside of inetpub. Click on include and locate "ost-sampleconfig.php" at the bottom of the list.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/hoVuqRf.jpg"/>
-<img src="https://i.imgur.com/I8ZApOx.png"/>
+<img src="https://i.imgur.com/YRL3v7m.png"/>
 </p>
 <p>
-Now that it has installed, open up both of these urls in your VM's browser
+Then rename the file from "ost-sampleconfig.php" to "ost-config.php"
+</p>
+<br />
 
-- Help desk login page (login with the credentials that you set for the admin user for osTicket): http://localhost/osTicket/scp/login.php
+<p>
+<img src="https://i.imgur.com/CgHZRpb.png"/>
+</p>
+<p>
+Now, click on that files Properties > Security > Advanced > Disable Inheritance > Remove all.
+</p>
+<br />
 
-- End Users osTicket URL: http://localhost/osTicket/ 
+<p>
+<img src="https://i.imgur.com/IRbLNbB.png"/>
+</p>
+<p>
+Afterwards, click Add > Select a principle > type "everyone" in the object box > Check name > Press Ok.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/C0j6tI0.png"/>
+</p>
+<p>
+Check the box for "full control" > press OK > Apply and then OK until the properties window closes.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/KlhO2v0.png"/>
+</p>
+<p>
+Head back to the osTicket installer and press "Continue".
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/NYqdbCE.png"/>
+</p>
+<p>
+Name your Helpdesk to your liking and a random email. This tutorial will be using the name "Helpdesk" and the email "john@helpdesk.com". You will continue the form by making your own Admin user credentials. I used a random email and created a password; be sure to jot these down if you are forgetful for this tutorial only.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/YBqFS5x.png"/>
+</p>
+<p>
+Next, download HeidiSQL from the drive folder which contains a word doc with a link to the downloader. Open the installer and click continue all the way through. Once it has installed you will click the "New" button at the bottom of the window > the username should already be set to "root" and type the password that we created "Password1" > press open.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/riJxLu1.png"/>
+</p>
+<p>
+Inside of HeidiSQL, right click "Unnamed" > Create new > Database > Name it "osTicket"> Click OK.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/YVmoHK8.png"/>
+</p>
+<p>
+Head back to the osTicket installer and enter the username and password. This should be "root" and "Password1". The hostname should also be "osTicket".
+</p>
+<br />
+
 </p>
 <br />
 
