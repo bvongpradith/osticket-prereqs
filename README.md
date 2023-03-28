@@ -3,7 +3,7 @@
 </p>
 
 <h1>osTicket - Prerequisites</h1>
-This is a tutorial that guides you through the prerequisites and installation of the open source support ticketing system osTicket. As a beginner, you may follow this guide to learn the basics while in a real world scenario you may need to further customize the system to work with your company. We will be deploying osTicket inside of Windows 10 Azure VM, but you can use any machhine that can run a VM. If you have not checked out how to setup a VM in my previous tutorials, there will be a link below where it will guide you step by step.</p>
+This is a tutorial that guides you through the prerequisites and installation of the open source support ticketing system osTicket. As a beginner, you may follow this guide to learn the basics while in a real world scenario you may need to further customize the system to work with your company. We will be deploying osTicket inside of Windows 10 Azure VM, but you can use any machine that can run a VM. If you have not checked out how to setup a VM in my previous tutorials, there will be a link below where it will guide you step by step.</p>
 
 - [How to Setup VMs and a Virtual Network in Azure](https://github.com/bvongpradith/creating-azure-vm)
 
